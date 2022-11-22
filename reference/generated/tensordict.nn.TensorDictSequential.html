@@ -350,8 +350,8 @@ looking for those that have the required keys, if any.</p></li>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">fmodule1</span> <span class="o">=</span> <span class="n">TensorDictModule</span><span class="p">(</span><span class="n">fnet1</span><span class="p">,</span> <span class="n">in_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;input&quot;</span><span class="p">],</span> <span class="n">out_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;scale&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">td_module1</span> <span class="o">=</span> <span class="n">ProbabilisticTensorDictModule</span><span class="p">(</span>
 <span class="gp">... </span>   <span class="n">module</span><span class="o">=</span><span class="n">fmodule1</span><span class="p">,</span>
-<span class="gp">... </span>   <span class="n">dist_param_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;scale&quot;</span><span class="p">],</span>
-<span class="gp">... </span>   <span class="n">out_key_sample</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hidden&quot;</span><span class="p">],</span>
+<span class="gp">... </span>   <span class="n">dist_in_keys</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;loc&quot;</span><span class="p">,</span> <span class="s2">&quot;scale&quot;</span><span class="p">],</span>
+<span class="gp">... </span>   <span class="n">sample_out_key</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;hidden&quot;</span><span class="p">],</span>
 <span class="gp">... </span>   <span class="n">distribution_class</span><span class="o">=</span><span class="n">Normal</span><span class="p">,</span>
 <span class="gp">... </span>   <span class="n">return_log_prob</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span class="gp">... </span>   <span class="p">)</span>
