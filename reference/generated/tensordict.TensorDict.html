@@ -1024,6 +1024,25 @@ previously set.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="tensordict.TensorDict.split">
+<span class="sig-name descname"><span class="pre">split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">split_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.11)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><span class="pre">TensorDictBase</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#tensordict.TensorDict.split" title="Permalink to this definition">¶</a></dt>
+<dd><p>Splits each tensor in the TensorDict with the specified size in the given dimension, like <cite>torch.split</cite>.
+Returns a list of TensorDict with the view of split chunks of items. Nested TensorDicts will remain nested.</p>
+<p>The list of TensorDict maintains the original order of the tensor chunks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>split_size</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em> or </em><em>List</em><em>(</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a><em>)</em>) – size of a single chunk or list of sizes for each chunk</p></li>
+<li><p><strong>dim</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><em>int</em></a>) – dimension along which to split the tensor</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of TensorDict with specified size in given dimension.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="tensordict.TensorDict.squeeze">
 <span class="sig-name descname"><span class="pre">squeeze</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">TensorDictBase</span></span></span><a class="headerlink" href="#tensordict.TensorDict.squeeze" title="Permalink to this definition">¶</a></dt>
 <dd><p>Squeezes all tensors for a dimension comprised in between <cite>-td.batch_dims+1</cite> and <cite>td.batch_dims-1</cite> and returns them in a new tensordict.</p>
@@ -1316,6 +1335,7 @@ tensor) dict should be cloned before being set. Default is
 <li><a class="reference internal" href="#tensordict.TensorDict.shape"><code class="docutils literal notranslate"><span class="pre">TensorDict.shape</span></code></a></li>
 <li><a class="reference internal" href="#tensordict.TensorDict.share_memory_"><code class="docutils literal notranslate"><span class="pre">TensorDict.share_memory_()</span></code></a></li>
 <li><a class="reference internal" href="#tensordict.TensorDict.size"><code class="docutils literal notranslate"><span class="pre">TensorDict.size()</span></code></a></li>
+<li><a class="reference internal" href="#tensordict.TensorDict.split"><code class="docutils literal notranslate"><span class="pre">TensorDict.split()</span></code></a></li>
 <li><a class="reference internal" href="#tensordict.TensorDict.squeeze"><code class="docutils literal notranslate"><span class="pre">TensorDict.squeeze()</span></code></a></li>
 <li><a class="reference internal" href="#tensordict.TensorDict.to"><code class="docutils literal notranslate"><span class="pre">TensorDict.to()</span></code></a></li>
 <li><a class="reference internal" href="#tensordict.TensorDict.to_dict"><code class="docutils literal notranslate"><span class="pre">TensorDict.to_dict()</span></code></a></li>
